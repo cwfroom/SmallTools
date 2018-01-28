@@ -1,0 +1,17 @@
+﻿{
+  "name": "OhysTranslator",
+  "version": "1.0",
+  "description": "Replace romanized anime names on https://torrents.ohys.net/download/ with Japanese",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+      "default_title": "OhysTranslator",
+      "default_icon": "icon.png"
+  },
+  "background" : {
+    "scripts" : ["main.js"],
+    "persistent" : true
+  },
+  "manifest_version": 2
+}

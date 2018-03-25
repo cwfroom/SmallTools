@@ -1,7 +1,8 @@
 ﻿
 (function() {
+	requestList('https://raw.githubusercontent.com/ohyongslck/annie/master/2018%402');
 	requestList('https://raw.githubusercontent.com/ohyongslck/annie/master/2018%401');
-	requestList('https://raw.githubusercontent.com/ohyongslck/annie/master/2017%404')
+	
 
 	function requestList(url){
 		var httpRequest = new XMLHttpRequest();

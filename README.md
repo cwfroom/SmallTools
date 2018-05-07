@@ -7,7 +7,11 @@ Some small but helpful batch files if put into a %PATH% folder.
 
 ## OhysTranslator - Chrome Extension
 
-Replace romanized anime titles on https://torrents.ohys.net/download/ with original Japanese to make them easier to read.
+Replace romanized anime titles on https://torrents.ohys.net/download/ with original Japanese to make the page easier to read.
 
 ## PixivLocator - iOS
 Open Pixiv in Chrome by Pixiv Illustration ID.
+
+## LineHighlighter - Window
+
+Highlight instructional text line by line so you won't miss a step

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Surugaya Email Parser</title>
+        <style>
+            table, th, td {
+                border: 1px solid;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="emailText" style="width: 800px; height: 600px;"></textarea>
+        <br/ >
+        <button onclick="parse()"">Parse</button>
+        <br />
+        <div id="resultDiv">
+        </div>
+        <script>
+            function splitEntry (str) {
+                const firstSpaceIndex = str.indexOf(' ')
+                const price = str.substring(0, firstSpaceIndex);
+                const remaining = str.substring(firstSpaceIndex + 1)
+                return {"price": price, "remaining": remaining}
+            }
+
+            function parse () {
+                const emailText = document.getElementById("emailText").value
+                const lines = emailText.split('\n')
+                let result = "<table><tbody>"
+                let labelIndex = 1
+                let TwoHundredCount = 0
+                for (let i = 0; i < lines.length; i++) {
+                    const {price, remaining} = splitEntry(lines[i])
+                    let isValuable = price !== "※不可品"
+                    
+                    if (isValuable) {
+                        const priceInt = parseInt(price.replace('\\', ''))
+                        if (priceInt >= 200) TwoHundredCount++
+                        result += `<tr><td>${labelIndex}</td><td>${priceInt}</td><td>${remaining}</td></tr>`
+                        labelIndex++
+                    } else {
+                        result += `<tr><td>${" "}</td><td>${price}</td><td>${remaining}</td></tr>`
+                    }
+                }
+                result += "</tbody></table>"
+                result += `<br /><p>>=200 Items ${TwoHundredCount}</p>`
+                document.getElementById('resultDiv').innerHTML = result
+            }
+        </script>
+    </body>
+</html>
